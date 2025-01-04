@@ -1,0 +1,62 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+env310/
+
+# Environment variables
+*.env
+*.env310
+*.env.*
+*.env310.*
+
+# Flask instance folder
+instance/
+
+# Flask cache and logs
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+
+# Temporary files
+tmp/
+temp/
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Database
+*.sqlite3
+*.db
+*.db-journal
+
+# IDE specific files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Testing reports and coverage
+htmlcov/
+.coverage
+.tox/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Dependency files
+*.lock
