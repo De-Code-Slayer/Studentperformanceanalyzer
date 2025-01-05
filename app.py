@@ -124,6 +124,20 @@ def load_user(user_id):
 @app.route('/dashboard', methods=['GET'])
 @login_required
 def dashboard():
+   
+    return render_template("dashboard.html")
+
+
+@app.route('/logout', methods=['GET'])
+@login_required
+def logout():
+    logout_user()
+    return redirect("login")
+    
+@app.route('/upload', methods=['POST','GET'])
+@login_required
+def upload_file():
+
     if request.method == "POST":
        
         file = request.files.get("file")
@@ -139,31 +153,19 @@ def dashboard():
             profile.to_file("templates/profile_report.html")
             
             return redirect(url_for("view_report"))
-    return render_template("dashboard.html")
-
-
-@app.route('/logout', methods=['GET'])
-@login_required
-def logout():
-    logout_user()
-    return redirect("login")
-    
-@app.route('/upload', methods=['POST','GET'])
-@login_required
-def upload_file():
-    """File upload route."""
-    if 'file' not in request.files or request.files['file'].filename == '':
-        return render_template('upload_file.html')
+    # """File upload route."""
+    # if 'file' not in request.files or request.files['file'].filename == '':
+    #     return render_template('upload_file.html')
 
     file = request.files['file']
     filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-    file.save(filepath)
+    # file.save(filepath)
 
-    # Process file (this is just an example)
-    analyzer = StatisticalAnalyzer(filepath)
-    analyzer.describe_data()
-    analyzer.encode_categorical_data()
-    analyzer.save_cleaned_data(os.path.join('static/reports', 'report.csv'))
+    # # Process file (this is just an example)
+    # analyzer = StatisticalAnalyzer(filepath)
+    # analyzer.describe_data()
+    # analyzer.encode_categorical_data()
+    # analyzer.save_cleaned_data(os.path.join('static/reports', 'report.csv'))
 
     return render_template('results.html', filepath=filepath)
 

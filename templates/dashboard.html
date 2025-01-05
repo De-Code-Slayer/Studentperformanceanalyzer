@@ -39,14 +39,14 @@
 
     <div class="container">
         <div class="profile-info">
-            <h2>Welcome, {{ user.username }}</h2>
-            <p>Email: {{ user.email }}</p>
+            <h2>Welcome, {{ current_user.username }}</h2>
+            <p>Email: {{ current_user.email }}</p>
         </div>
 
         <div class="action-buttons">
             <a href="{{ url_for('download_pdf') }}" class="btn btn-info">Download Template</a>
             <a href="{{ url_for('upload_file') }}" class="btn btn-success">Upload File for Analysis</a>
-            <a href="{{ url_for('logout', email=user.email) }}" class="btn btn-danger">Logout</a>
+            <a href="{{ url_for('logout', email=current_user.email) }}" class="btn btn-danger">Logout</a>
         </div>
     </div>
 

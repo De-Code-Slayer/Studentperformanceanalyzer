@@ -1,4 +1,7 @@
 Flask==2.2.3
+flask_sqlalchemy
+flask_migrate
+flask_login
 pandas
 seaborn==0.12.2
 fpdf==1.7.2
