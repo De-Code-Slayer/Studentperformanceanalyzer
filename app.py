@@ -79,7 +79,6 @@ def register():
             university=university,
             username=username,
             password=hashed_password,
-            is_authenticated = True,
             role='student' # Default role,
         )
 
